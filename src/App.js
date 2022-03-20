@@ -43,36 +43,38 @@ const dummyData = [
     id:1,
     emotion:1,
     content: "오늘의 일기 1번",
-    date : 20220318
+    date : 1647749741334
   },
   {
     id:2,
     emotion:2,
     content: "오늘의 일기 2번",
-    date : 20220319   
+    date : 1647749741335   
   },
   {
     id:3,
     emotion:3,
     content: "오늘의 일기 3번",
-    date : 20220320 
+    date : 1647749741336 
   },
   {
     id:4,
     emotion:4,
     content: "오늘의 일기 4번",
-    date : 20220321  
+    date : 1647749741337  
   },
   {
     id:5,
     emotion:5,
     content: "오늘의 일기 5번",
-    date : 20220322   
+    date : 1647749741338   
   }
 ]
 
 function App() {
 
+
+  console.log(new Date().getTime());
   const [data, dispatch] = useReducer(reducer, dummyData);
 
   const dataId = useRef(0);
@@ -108,7 +110,7 @@ function App() {
 
   return (
     <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext.Provider value={onCreate, onRemove, onEdit}>
+        <DiaryDispatchContext.Provider value={{onCreate, onRemove, onEdit}}>
           <BrowserRouter>
             <div className="App">
               <Routes>

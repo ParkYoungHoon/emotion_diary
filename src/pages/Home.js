@@ -13,19 +13,28 @@ const Home = () => {
     const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
     useEffect(()=> {
-        const firstDay = new Date(
-            curDate.getFullYear(),
-            curDate.getMonth(),
-            1
-        ).getTime();
 
-        const lastDay = new Date(
-            curDate.getFullYear(),
-            curDate.getMonth() + 1,
-            0
-        ).getTime();
+        if(diaryList.length >= 1) {
 
-        setData(diaryList)
+            // 현재 선택 된 월의 1일
+            const firstDay = new Date(
+                curDate.getFullYear(),
+                curDate.getMonth(),
+                1
+            ).getTime();
+
+            console.log(`firstDay > ${firstDay}`);
+
+            // 현재 선택 된 월의 마지막일
+            const lastDay = new Date(
+                curDate.getFullYear(),
+                curDate.getMonth() + 1,
+                0
+            ).getTime();
+
+            setData(diaryList.filter((data)=> firstDay <= data.date && data.date <= lastDay));
+
+        }
     }, [diaryList, curDate]);
 
     useEffect(()=> {
