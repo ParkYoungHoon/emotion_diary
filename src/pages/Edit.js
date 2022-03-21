@@ -16,15 +16,11 @@ const Edit = () => {
     
     const diaryList = useContext(DiaryStateContext);
 
-    console.log(`id : ${id}`);
-    console.log(`diaryList : ${diaryList}`);
-
     useEffect(()=> {
         if(diaryList.length >= 1) {
             const targetDiary = diaryList.find(
                 (data)=> parseInt(data.id) === parseInt(id)
             );
-            console.log(targetDiary);
             if(targetDiary){
                 setOriginData(targetDiary);
             }else{
