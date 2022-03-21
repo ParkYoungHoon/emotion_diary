@@ -25,8 +25,6 @@ const Home = () => {
                 1
             ).getTime();
 
-            console.log(`firstDay > ${firstDay}`);
-
             // 현재 선택 된 월의 마지막일
             const lastDay = new Date(
                 curDate.getFullYear(),
@@ -41,10 +39,6 @@ const Home = () => {
 
         }
     }, [diaryList, curDate]);
-
-    useEffect(()=> {
-        console.log(data);
-    }, [data]);
 
     const increaseMonth = ()=> {
         setCurDate(
@@ -61,8 +55,8 @@ const Home = () => {
     return (
         <div>
             <MyHeadr headText={headText}
-            leftChild={<MyButton text={'<'} onClick={decreaseMonth} />}
-            rightChild={<MyButton text={'>'} onClick={increaseMonth} />}
+                leftChild={<MyButton text={'<'} onClick={decreaseMonth} />}
+                rightChild={<MyButton text={'>'} onClick={increaseMonth} />}
             />
             <DiaryList diaryList={data}/>
         </div>
