@@ -11,7 +11,9 @@ import { emotionList } from '../util/emotion';
 
 const DiaryEditer = ({isEdit, originData}) => {
     const contentRef = useRef();
+    const titleRef = useRef();
     const [content, setContent] = useState("");
+    const [title, setTitle] = useState("");
     const [emotion, setEmotion] = useState(3);
     const [date, setDate] = useState(getStringDate(new Date()));
 
@@ -28,12 +30,16 @@ const DiaryEditer = ({isEdit, originData}) => {
             contentRef.current.focus();
             return;
         }
+        if(title.length < 1){
+            titleRef.current.focus();
+            return;
+        }
 
         if(window.confirm(isEdit ? "일기를 수정하시겠습니까?" : "새로운 일기를 작성하시겠습니까?")){
             if(!isEdit) {
-                onCreate(date, content, emotion);
+                onCreate(title, date, content, emotion);
             }else{
-                onEdit(originData.id, date, content, emotion);
+                onEdit(originData.id, title, date, content, emotion);
             }
         }
 
@@ -51,6 +57,7 @@ const DiaryEditer = ({isEdit, originData}) => {
     useEffect(()=> {
         if(isEdit){
             setDate(getStringDate(new Date(parseInt(originData.date))));
+            setTitle(originData.title);
             setEmotion(originData.emotion);
             setContent(originData.content);
         }
@@ -93,6 +100,15 @@ const DiaryEditer = ({isEdit, originData}) => {
                 </section>
                 <section>
                     <h4>오늘의 일기</h4>
+                    <div className="input_box title">
+                        <input
+                            type="text"
+                            placeholder="제목"
+                            ref={titleRef}
+                            value={title}
+                            onChange={(e)=> setTitle(e.target.value)}
+                        />
+                    </div>
                     <div className="input_box text_wrapper">
                         <textarea
                             placeholder="오늘은 어떤 하루였나요?"

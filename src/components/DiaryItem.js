@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import MyButton from "./MyButton";
 
-const DiaryItem = ({id, emotion, content, date}) => {
+const DiaryItem = ({id, emotion, content, title, date}) => {
 
     const navigate = useNavigate();
     const strDate = new Date(parseInt(date)).toLocaleDateString();
@@ -29,7 +29,7 @@ const DiaryItem = ({id, emotion, content, date}) => {
                 onClick={goDetail}
                 className="info_wrapper">
                 <div className="diary_date">{strDate}</div>
-                <div className="diary_content_preview">{content.slice(0, 25)}</div>
+                <div className="diary_content_preview">{title}</div>
             </div>
             <div className="btn_wrapper">
                 <MyButton
