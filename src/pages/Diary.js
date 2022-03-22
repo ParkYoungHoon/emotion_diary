@@ -42,7 +42,7 @@ const Diary = () => {
         return (
             <div className="DiaryPage">
                 <MyHeader
-                    headText={`[${getStringDate(new Date(data.date))}] 기록`}
+                    headText={`${getStringDate(new Date(data.date))} 기록`}
                     leftChild={
                         <MyButton
                             text={"< 뒤로가기"}

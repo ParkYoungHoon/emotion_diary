@@ -230,6 +230,7 @@ header button {
 .DiaryEditer textarea {
   font-family: "Nanum Pen Script";
   font-size: 20px;
+  white-space: pre;
 
   box-sizing: border-box;
   width: 100%;
@@ -371,6 +372,7 @@ header button {
   border-radius: 5px;
   word-break: break-all;
   overflow-wrap: break-word;
+  white-space: pre;
 }
 
 .DiaryPage .diary_title_wrapper {
@@ -390,7 +392,7 @@ header button {
   padding: 20px;
   text-align: left;
   font-size: 20px;
-  font-family: "Yeon Sung";
+  font-family: "Nanum Pen Script";
   font-weight: 400;
   line-height: 2.5;
 }

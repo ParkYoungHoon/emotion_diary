@@ -5,9 +5,11 @@ import { DiaryDispatchContext } from './../App.js';
 import MyHeader from './/MyHeader';
 import MyButton from './/MyButton';
 import EmotionItem from './EmotionItem';
+import WeatherItem from './WeatherItem';
 
 import { getStringDate } from '../util/date.js';
 import { emotionList } from '../util/emotion';
+import { weatherList } from '../util/weather';
 
 const DiaryEditer = ({isEdit, originData}) => {
     const contentRef = useRef();
@@ -15,6 +17,7 @@ const DiaryEditer = ({isEdit, originData}) => {
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
     const [emotion, setEmotion] = useState(3);
+    const [weather, setWeather] = useState(3);
     const [date, setDate] = useState(getStringDate(new Date()));
 
     const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext)
@@ -23,15 +26,21 @@ const DiaryEditer = ({isEdit, originData}) => {
         setEmotion(emotion);
     }, []);
 
+    const handleClickWeather = useCallback((weather) => {
+        setWeather(weather);
+    }, []);
+
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        if(content.length < 1){
-            contentRef.current.focus();
-            return;
-        }
+
         if(title.length < 1){
             titleRef.current.focus();
+            return;
+        }
+
+        if(content.length < 1){
+            contentRef.current.focus();
             return;
         }
 
@@ -85,6 +94,19 @@ const DiaryEditer = ({isEdit, originData}) => {
                             type="date" />
                     </div>
                 </section>
+                {/* <section>
+                    <h4>오늘의 날씨는?</h4>
+                    <div className="input_box weather_list_wrapper">
+                        {weatherList.map((data)=> (
+                            <WeatherItem
+                                key={data.weather_id}
+                                {...data}
+                                onClick={handleClickWeather}
+                                isSelected={data.weather_id === weather}
+                            />
+                        ))}
+                    </div>
+                </section> */}
                 <section>
                     <h4>오늘의 감정</h4>
                     <div className="input_box emotion_list_wrapper">
@@ -103,7 +125,7 @@ const DiaryEditer = ({isEdit, originData}) => {
                     <div className="input_box title">
                         <input
                             type="text"
-                            placeholder="제목"
+                            placeholder="오늘의 주제"
                             ref={titleRef}
                             value={title}
                             onChange={(e)=> setTitle(e.target.value)}
