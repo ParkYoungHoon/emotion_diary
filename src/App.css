@@ -249,6 +249,19 @@ header button {
   align-items: center;
 }
 
+.DiaryEditer input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ececec;
+  background-color: #ececec;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Nanum Pen Script";
+  font-size: 20px;
+}
+
 /* EmotionItem */
 .EmotionItem {
   cursor: pointer;
@@ -358,6 +371,19 @@ header button {
   border-radius: 5px;
   word-break: break-all;
   overflow-wrap: break-word;
+}
+
+.DiaryPage .diary_title_wrapper {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: #ececec;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Nanum Pen Script";
+  font-size: 20px;
+  text-align: left;
+  padding: 1px 20px;
 }
 
 .DiaryPage .diary_content_wrapper p {
