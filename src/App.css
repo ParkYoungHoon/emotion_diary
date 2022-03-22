@@ -108,6 +108,16 @@ header button {
   justify-content: space-between;
 }
 
+.DiaryList .menu_wrapper .left_col input[type=text] {
+  padding: 10px 20px;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  background-color: #ececec;
+  margin-right: 20px;
+  box-sizing: border-box;
+  font-size: 17px;
+}
+
 .DiaryList .menu_wrapper .right_col {
   flex-grow: 1;
 }
@@ -131,6 +141,7 @@ header button {
   font-family: "Nanum Pen Script";
   font-size: 18px;
 }
+
 
 /*  DiaryList  */
 .DiaryItem {

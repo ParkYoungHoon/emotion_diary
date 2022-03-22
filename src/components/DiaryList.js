@@ -72,6 +72,7 @@ const DiaryList = ({diaryList}) => {
                         onChange={setFilter}
                         optionList={filterOptionList}
                     />
+                    <input type="text" placeholder="Search.."/>
                 </div>
                 <div className="right_col">
                     <MyButton
