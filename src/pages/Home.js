@@ -1,71 +1,12 @@
-import { useState, useContext, useEffect } from "react";
-import { DiaryStateContext } from "../App";
-
-import MyHeadr from './../components/MyHeader';
-import MyButton from './../components/MyButton';
-import DiaryList from './../components/DiaryList';
-
+import React from "react";
 
 const Home = () => {
-
-    const diaryList = useContext(DiaryStateContext);
-
-    const [data, setData] = useState([]);
-    const [curDate, setCurDate] = useState(new Date());
-    const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
-
-    useEffect(()=> {
-        const titleElement = document.getElementsByTagName('title')[0];
-        titleElement.innerHTML = `감정 일기장`;
-    }, []);
-
-    useEffect(()=> {
-
-        if(diaryList.length >= 1) {
-
-            // 현재 선택 된 월의 1일
-            const firstDay = new Date(
-                curDate.getFullYear(),
-                curDate.getMonth(),
-                1
-            ).getTime();
-
-            // 현재 선택 된 월의 마지막일
-            const lastDay = new Date(
-                curDate.getFullYear(),
-                curDate.getMonth() + 1,
-                0,
-                23,
-                59,
-                59
-            ).getTime();
-
-            setData(diaryList.filter((data)=> firstDay <= data.date && data.date <= lastDay));
-
-        }
-    }, [diaryList, curDate]);
-
-    const increaseMonth = ()=> {
-        setCurDate(
-            new Date(curDate.getFullYear(), curDate.getMonth() + 1, curDate.getDate())
-        );
-    };
-
-    const decreaseMonth = ()=> {
-        setCurDate(
-            new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
-        );
-    };
-
-    return (
-        <div>
-            <MyHeadr headText={headText}
-                leftChild={<MyButton text={'<'} onClick={decreaseMonth} />}
-                rightChild={<MyButton text={'>'} onClick={increaseMonth} />}
-            />
-            <DiaryList diaryList={data}/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>Home</h1>
+      <p>이곳은 Home 입니다.</p>
+    </div>
+  );
+};
 
 export default Home;
