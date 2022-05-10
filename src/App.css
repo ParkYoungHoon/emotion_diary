@@ -204,20 +204,20 @@ header button {
 }
 
 /*  DiaryList  */
-.DiaryEditer {
+.DiaryEditor {
 
 }
 
-.DiaryEditer section {
+.DiaryEditor section {
   margin-bottom: 40px;
 }
 
-.DiaryEditer h4 {
+.DiaryEditor h4 {
   font-size: 22px;
   font-weight: bold;
 }
 
-.DiaryEditer .input_date {
+.DiaryEditor .input_date {
   border: none;
   border-radius: 5px;
   background-color: #ececec;
@@ -232,13 +232,13 @@ header button {
   font-size: 20px;
 }
 
-.DiaryEditer .emotion_list_wrapper {
+.DiaryEditor .emotion_list_wrapper {
   display: grid;
   grid-template-columns: repeat(5, auto);
   gap: 2%;
 }
 
-.DiaryEditer textarea {
+.DiaryEditor textarea {
   font-family: "Nanum Pen Script";
   font-size: 20px;
   white-space: pre;
@@ -255,13 +255,13 @@ header button {
   padding: 20px;
 }
 
-.DiaryEditer .control_box {
+.DiaryEditor .control_box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.DiaryEditer input[type=text]{
+.DiaryEditor input[type=text]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
